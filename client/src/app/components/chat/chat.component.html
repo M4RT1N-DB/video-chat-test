@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="name">
+        <div class="n1">
+            <input type="text" placeholder="Enter your name" [(ngModel)]="name">
+        </div>
+
+    </div>
+
+
+    <div class="messages">
+        <div class="m1" *ngFor="let i of dummyData">
+            <div class="m1a">{{i.name}}</div>
+            <div class="m1b">{{i.message}}</div>
+        </div>
+    </div>
+
+
+
+
+    <div class="input">
+        <div class="i1">
+            <input type="text" [(ngModel)]="message">
+        </div>
+        <div class="i2">
+            <button (click)="send()">SEND</button>
+        </div>
+    </div>
+</div>
