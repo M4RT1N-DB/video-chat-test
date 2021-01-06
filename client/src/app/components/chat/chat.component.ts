@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SocketService } from 'src/app/services/socket-service.service';
 
 import { Messages } from '../../dto/messages';
@@ -11,9 +11,11 @@ import { Messages } from '../../dto/messages';
 export class ChatComponent implements OnInit {
   message: string = '';
   name: string = '';
+  input: string;
 
   dummyData;
 
+  //------------------------------
   constructor(private socketServ: SocketService) {
     this.socketServ.initSocket();
   }
@@ -29,5 +31,11 @@ export class ChatComponent implements OnInit {
     this.socketServ.loadMessages().subscribe((data) => {
       this.dummyData = data;
     });
+    this.message = '';
   }
+
+
+
+
+
 }

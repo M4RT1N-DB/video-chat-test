@@ -32,7 +32,7 @@ export class SocketService {
     });
   }
 
-  loadMessages2() {
+  loadMessages2():Observable<Messages>{
     return new Observable((subs) => {
       this.socket.on('messages1', (data) => {
         subs.next(data);
