@@ -1,19 +1,11 @@
-import { ViewFlags } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewChild, ElementRef, Pipe } from '@angular/core';
-import { pipe } from 'rxjs';
 import { SocketService } from 'src/app/services/socket-service.service';
-import { Response } from '../../dto/models';
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })
 export class ChatComponent implements OnInit {
-  message: string = '';
-  name: string = '';
-  input: string;
-
   //---------------------------------------------------
   @ViewChild('roomName') roomName: ElementRef;
   @ViewChild('userVideo') userVideo: ElementRef;
@@ -24,15 +16,14 @@ export class ChatComponent implements OnInit {
   @ViewChild('leaveButtonV') leaveButtonV: ElementRef;
   @ViewChild('muteButtonV') muteButtonV: ElementRef;
   //---------------------------------------------------
-  muteFlag = false;
-  hideCameraFlag = false;
+  muteFlag:boolean = true;
+  hideCameraFlag:boolean = false;
   showGroupButtons: boolean = true;
 
   roomNameSave: string = '';
   creator: boolean = false;
   rtcPeerConnection: RTCPeerConnection;
   userStream: MediaStream;
-  response: any;
   //------------------------------
   constructor(private socketServ: SocketService) {
     this.socketServ.initSocket();
@@ -41,8 +32,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {}
 
   joinRoom() {
-    console.log(this.userVideo);
-    console.log(this.peerVideo);
     this.roomNameSave = this.roomName.nativeElement.value;
     if (this.roomNameSave === '' && this.valitationCheckBox()) {
       alert('Please enter the name of the room or the type of session');
@@ -73,7 +62,6 @@ export class ChatComponent implements OnInit {
         })
         .then((stream: MediaStream | null) => {
           this.userStream = stream;
-          console.log(this.userStream);
           this.socketServ.joinRoom(
             this.roomNameSave,
             this.creator,
@@ -97,7 +85,6 @@ export class ChatComponent implements OnInit {
         })
         .then((stream: MediaStream | null) => {
           this.userStream = stream;
-          console.log(this.userStream);
           this.socketServ.joinRoom(
             this.roomNameSave,
             this.creator,

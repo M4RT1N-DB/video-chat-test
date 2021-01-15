@@ -11,14 +11,12 @@
         <div class="btn">
             <button class="join" (click)="joinRoom()">Join</button>
         </div>
-        
+
     </div>
 
 
     <div class="video-chat-room">
         <div class="user-video-container">
-            <!-- <video class="userVideo" [srcObject]="userVideo" (loadedmetadata)="onLoadedMetadata($event)" [muted]="userVideo.muted"></video> -->
-            <!-- <video #userVideo class="userVideo" [srcObject]="userVideo.srcObject" (loadedmetadata)="onLoadedMetadata($event)" ></video> -->
             <video #userVideo class="userVideo"></video>
         </div>
         <div class="peer-video-container">
@@ -29,7 +27,7 @@
 
     <div class="btn-group" *ngIf="showGroupButtons">
         <button #muteButtonV class="mute-button" (click)="muteButton()">Mute</button>
-        <button #leaveButtonV class="leave-button"(click)="leaveButton()">Leave Room</button>
+        <button #leaveButtonV class="leave-button" (click)="leaveButton()">Leave Room</button>
         <button #hideCameraV class="hide-camera-button" (click)="hideCameraButton()">Hide Camera</button>
     </div>
 
