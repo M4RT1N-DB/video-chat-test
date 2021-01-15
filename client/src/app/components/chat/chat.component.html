@@ -1,25 +1,37 @@
-
 <div class="container">
-    <div class="name">
-        <div class="n1">
-            <input type="text" placeholder="Enter your name" [(ngModel)]="name">
+
+
+    <div class="video-chat-lobby">
+        <h2 class="text">Video Chat Application</h2>
+        <input #roomName type="text" class="roomName" placeholder="RoomName"><br>
+        <div class="optionCheck">
+            <input #createRoomCheck type="radio" value="createRoom" name="check" checked> Create Room
+            <input #joinRoomCheck type="radio" value="joinRoom" name="check"> Join Room
+        </div>
+        <div class="btn">
+            <button class="join" (click)="joinRoom()">Join</button>
+        </div>
+        
+    </div>
+
+
+    <div class="video-chat-room">
+        <div class="user-video-container">
+            <!-- <video class="userVideo" [srcObject]="userVideo" (loadedmetadata)="onLoadedMetadata($event)" [muted]="userVideo.muted"></video> -->
+            <!-- <video #userVideo class="userVideo" [srcObject]="userVideo.srcObject" (loadedmetadata)="onLoadedMetadata($event)" ></video> -->
+            <video #userVideo class="userVideo"></video>
+        </div>
+        <div class="peer-video-container">
+            <video #peerVideo class="peerVideo"></video>
         </div>
     </div>
 
-    <div class="messages">
-        <div class="m1" *ngFor="let i of dummyData">
-            <div class="m1a">{{i.name}}</div>
-            <div class="m1b">{{i.message}}</div>
-        </div>
+
+    <div class="btn-group" *ngIf="showGroupButtons">
+        <button #muteButtonV class="mute-button" (click)="muteButton()">Mute</button>
+        <button #leaveButtonV class="leave-button"(click)="leaveButton()">Leave Room</button>
+        <button #hideCameraV class="hide-camera-button" (click)="hideCameraButton()">Hide Camera</button>
     </div>
 
-    <div class="input">
-        <div class="i1">
-            <input #input type="text" [(ngModel)]="message">
-        </div>
-        <div class="i2">
-            <button (click)="send()">SEND</button>
-        </div>
-    </div>
+
 </div>
-    

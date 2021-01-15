@@ -14,127 +14,16 @@
   justify-content: center;
 }
 
-.name,
-.messages,
-.input {
-  margin: 1% 5% 1% 5%;
-}
-/**********************HEADER CSS**************************/
-.name {
-  width: 90%;
-  height: 5%;
-
+.video-chat-room{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
-.n1 {
-  min-width: 30%;
-  min-height: 80%;
-  max-height: 80%;
+.userVideo{
+  height: 500px;
+  width: 500px;
+  background-color: blueviolet;
 }
-
-.n1 > input {
-  border: none;
-  border-radius: 10px;
-
-  height: 35px;
-  width: 300px;
-
-  font-size: 25px;
-  text-transform: uppercase;
-  font-weight: bold;
-
-  color: black;
-
-  text-align: center;
-  outline: none;
-
-  background-color: rgb(255, 255, 255);
-}
-/**********************BODY CSS**************************/
-
-.messages {
-  overflow-y: scroll;
-
-  width: 90%;
-  height: 79%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: rgb(92, 92, 92);
-}
-
-.m1 {
-  width: 95%;
-  height: 100px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-
-  margin: 0 0 15px 0;
-
-  background-color: turquoise;
-}
-.m1a {
-  width: 95%;
-  height: 30%;
-
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: start;
-
-  margin-bottom: 5px;
-}
-.m1b {
-  width: 95%;
-  height: 60%;
-}
-
-/**********************FOOTER CSS**************************/
-.input {
-  width: 90%;
-  height: 10%;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  background-color: rgb(92, 92, 92);
-}
-
-.i1 {
-  width: 90%;
-  height: 55px;
-}
-.i1 > input {
-  height: 92%;
-  width: 99%;
-
-  border-radius: 10px;
-
-  font-size: 25px;
-}
-
-.i2 {
-  width: 6%;
-  height: 55px;
-}
-.i2 > button {
-  height: 100%;
-  width: 100%;
-
-  font-size: 20px;
-  text-align: center;
-
-  border-radius: 10px;
+.peerVideo{
+height: 500px;
+width: 500px;
+background-color: burlywood;
 }
